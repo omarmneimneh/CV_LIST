@@ -36,6 +36,9 @@ function Form({
   const gradYearChangeHandler = (e) => {
     setGradYear(e.target.value);
   };
+  const degreeChangeHandler = (e) =>{
+    setDegreeName(e.target.value);
+  }
 
   const generalInfoSubmitHandler = (e) => {
     e.preventDefault();
@@ -45,6 +48,7 @@ function Form({
   };
 
   const educationInfoSubmitHandler = (e) => {
+    e.preventDefault()
     setEducationInfo([
       ...educationInfo,
       {
@@ -54,6 +58,9 @@ function Form({
         gradYear: graduationYearInput,
       },
     ]);
+    setDegreeName("");
+    setGradYear("");
+    setSchoolName("");
   };
   return (
     <div>
@@ -76,7 +83,7 @@ function Form({
             Phone Number:
           </label>
           <input onChange={numberChangeHandler} type="number" required />
-          <button onClick={generalInfoSubmitHandler}>Submit</button>
+          <button className="submit" onClick={generalInfoSubmitHandler}>Submit</button>
         </div>
 
         <div className="EducationForm">
@@ -85,12 +92,14 @@ function Form({
           </label>
           <input id="input" type="text" onChange={schoolChangeHandler} />
           <label htmlFor="" id="input">
-            Graduation Year:
+            Duration:
           </label>
-          <input id="input" type="number" />
+          <input id="input" type="text" onChange={gradYearChangeHandler} />
           <label htmlFor="" id="label">
             Degree:
           </label>
+          <input type="text" id="input" onChange={degreeChangeHandler}/>
+          <button className="submit" onClick={educationInfoSubmitHandler}>Submit</button>
         </div>
 
         <div className="WorkExperience">

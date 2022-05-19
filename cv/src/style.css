@@ -28,3 +28,53 @@ body{
     gap: 2%;
     list-style-type: none;
 }
+.form{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    width: 60%;
+    margin: auto;
+
+}
+.general{
+    display: grid;
+    grid-template-columns: repeat(1, .1fr);
+}
+.general>button{
+    margin-top: 5%;
+}
+.EducationForm{
+    display: grid;
+    grid-template-columns: repeat(1, .1fr);
+}
+.EducationForm>button {
+    margin-top: 5%;
+}
+.WorkExperience{
+    display: grid;
+    grid-template-columns: repeat(1, .1fr);
+}
+
+.WorkExperience>button{
+    display: grid;
+    grid-template-columns: repeat(1, .1fr);
+}
+
+input{
+    border-radius: 10px;
+    text-align: center;
+}
+button{
+    border-radius: 10px;
+}
+
+.submit{
+    background-color: lightgreen;
+}
+
+.resume{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

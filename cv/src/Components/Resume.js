@@ -1,17 +1,6 @@
 import React from "react";
-
-const Resume = ({nameInput, emailInput, numberInput, educationInfo}) => {
-    
-    const schoolInfoHandler = (school) => {
-        return(
-            <div>
-                <h2>{school.name}</h2>
-                <p id="gradYear">{school.gradYear}</p>
-                <p id="degree">{school.degree}</p>
-            </div>
-        )
-    }
-    
+import SchoolField from "./schoolField";
+const Resume = ({nameInput, emailInput, numberInput, educationInfo}) => {    
     return(
         <div className="resume">
             <div className="general">
@@ -24,14 +13,14 @@ const Resume = ({nameInput, emailInput, numberInput, educationInfo}) => {
 
             <div className="schoolInfo">
                 <ul>
-                    {/* {educationInfo.map((school) =>{
-                        <schoolField 
+                    {educationInfo.map(school => {
+                        <SchoolField 
                             schoolName = {school.name}
-                            key = {school.key}
+                            id = {school.id}
                             gradYear={school.gradYear}
                             degree={school.degree}
                         />
-                    })} */}
+                    })}
                 </ul>
             </div>
         </div>

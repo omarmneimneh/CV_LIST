@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 import Resume from "./Components/Resume";
 import Form from "./Components/Form";
+import SchoolField from "./Components/schoolField";
 import "./style.css";
 const App = () => {
   //general information props and states (left and right respectively)
   const [nameInput, setNameInput] = useState("");
   const [emailInput, setEmailInput] = useState("");
-  const [numberInput, setPhoneNumberInput] = useState(0);
+  const [numberInput, setPhoneNumberInput] = useState("");
 
   //education props and states
   const [schoolNameInput, setSchoolName] = useState("");
-  const [graduationYearInput, setGraduationYear] = useState(0);
+  const [graduationYearInput, setGraduationYear] = useState("");
   const [degreeNameInput, setDegreeName] = useState("");
   const [educationInfo, setEducationInfo] = useState([]);
 
