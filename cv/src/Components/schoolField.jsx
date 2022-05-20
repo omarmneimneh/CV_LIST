@@ -1,11 +1,11 @@
 import React from "react";
 
-const SchoolField = ({ schoolName, id, gradYear, degree }) =>{
+const SchoolField = ({ schoolName, gradYear, degree }) =>{
     return(
         <div className="schoolInfo">
             <h2>{schoolName}</h2>
-            <p id="gradYear">{gradYear}</p>
-            <p id="degree">{degree}</p>
+            <p className="gradYear">{gradYear}</p>
+            <p className="degree">{degree}</p>
         </div>
     )
 }

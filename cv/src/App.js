@@ -5,20 +5,11 @@ import SchoolField from "./Components/schoolField";
 import "./style.css";
 const App = () => {
   //general information props and states (left and right respectively)
-  const [nameInput, setNameInput] = useState("");
-  const [emailInput, setEmailInput] = useState("");
-  const [numberInput, setPhoneNumberInput] = useState("");
-
+  const [generalInfo, setGeneralInfo] = useState([]);
   //education props and states
-  const [schoolNameInput, setSchoolName] = useState("");
-  const [graduationYearInput, setGraduationYear] = useState("");
-  const [degreeNameInput, setDegreeName] = useState("");
   const [educationInfo, setEducationInfo] = useState([]);
 
   //Work Experience props and states
-  const [companyNameInput, setCompanyName] = useState("");
-  const [tenureInput, setTenureInput] = useState("");
-  const [descriptionInput, setDescriptionInput] = useState("");
   const [workExperienceInfo, setWorkExperienceInfo] = useState([]);
 
   return (
@@ -28,27 +19,18 @@ const App = () => {
       </div>
       <Form
         //general info props and states
-        nameInput={nameInput}
-        emailInput={emailInput}
-        numberInput={numberInput}
-        setNameInput={setNameInput}
-        setEmailInput={setEmailInput}
-        setPhoneNumberInput={setPhoneNumberInput}
+        setGeneralInfo={setGeneralInfo}
+        generalInfo={generalInfo}
         //education props and states
-        schoolNameInput={schoolNameInput}
-        graduationYearInput={graduationYearInput}
-        degreeNameInput={degreeNameInput}
-        educationInfo={educationInfo}
-        setSchoolName={setSchoolName}
-        setGradYear={setGraduationYear}
-        setDegreeName={setDegreeName}
         setEducationInfo={setEducationInfo}
+        educationInfo={educationInfo}
       />
       <Resume
-        nameInput={nameInput}
-        emailInput={emailInput}
-        numberInput={numberInput}
+        // nameInput={nameInput}
+        // emailInput={emailInput}
+        // numberInput={numberInput}
         educationInfo={educationInfo}
+        generalInfo={generalInfo}
       />
     </div>
   );

@@ -73,8 +73,20 @@ button{
     background-color: lightgreen;
 }
 
+.submit:active{
+    background-color: green;
+}
+
 .resume{
     width: 100%;
+    height: auto;
     display: flex;
     justify-content: center;
+}
+
+#name{
+    display: inline-block;
+    justify-content: center;
+    width: 100%;
+
 }

@@ -1,22 +1,22 @@
 import React from "react";
 import SchoolField from "./schoolField";
-const Resume = ({nameInput, emailInput, numberInput, educationInfo}) => {    
+const Resume = ({generalInfo, educationInfo}) => {    
     return(
         <div className="resume">
             <div className="general">
-                <h1 id="name">{nameInput}</h1>
+                <h1 id="name">Omar Mneimneh</h1>
                 <div className="emailnphone">
-                    <p>{emailInput}</p>
-                    <p>{numberInput}</p>
+                    <p>{}</p>
+                    <p></p>
                 </div>
             </div>
 
             <div className="schoolInfo">
                 <ul>
                     {educationInfo.map(school => {
-                        <SchoolField 
+                        return <SchoolField 
                             schoolName = {school.name}
-                            id = {school.id}
+                            key = {school.id}
                             gradYear={school.gradYear}
                             degree={school.degree}
                         />

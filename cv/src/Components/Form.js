@@ -1,29 +1,56 @@
-import React from "react";
+import React,{useState} from "react";
 
 function Form({
   setGeneralInfo,
-  setNameInput,
-  setEmailInput,
-  setPhoneNumberInput,
-  nameInput,
-  emailInput,
-  numberInput,
-  setSchoolName,
-  setGradYear,
-  setDegreeName,
+  generalInfo,
   setEducationInfo,
   educationInfo,
-  graduationYearInput,
-  degreeNameInput,
-  schoolNameInput,
 }) {
-  const nameChangeHandler = (e) => {
-    setNameInput(e.target.value);
+  
+  const [nameInput, setNameInput]=useState("");
+  const [emailInput, setEmailInput] = useState("");
+  const [numberInput, setPhoneNumberInput] = useState("");
+
+  const[schoolNameInput, setSchoolName] = useState("");
+  const[graduationYearInput, setGradYear] = useState("");
+  const[degreeNameInput, setDegreeName] = useState("");
+
+  const[companyNameInput, setCompanyName] = useState("");
+  const[positionInput, setPosition] = useState("");
+  const[tenure, setTenure] = useState("");
+  const[description, setDescription] = useState([]);
+
+  const changeHandler = (e) => {
+    var input = e.target.className;
+    switch(input){
+      case"nameInput":
+        setNameInput(e.target.value);
+        break;
+      case"emailInput":
+        console.log(e.target.value);
+        setEmailInput(e.target.value);
+        break;
+      case"numberInput":
+        setPhoneNumberInput(e.target.value);
+        break;
+      case"schoolInput":
+        setSchoolName(e.target.value);
+        break;
+      case"graduationInput":
+        setGradYear(e.target.value);
+        break;
+      case"degreeInput":
+        setDegreeName(e.target.value);
+        break;
+      default:
+        break;
+    }
   };
 
-  const emailChangeHandler = (e) => {
-    setEmailInput(e.target.value);
-  };
+  // const emailChangeHandler = (e) => {
+  //   console.log(e.target.className)
+  //   setEmailInput(e.target);
+  // };
 
   const numberChangeHandler = (e) => {
     setPhoneNumberInput(e.target.value);
@@ -42,9 +69,13 @@ function Form({
 
   const generalInfoSubmitHandler = (e) => {
     e.preventDefault();
-    setNameInput("");
-    setEmailInput("");
-    setPhoneNumberInput("");
+    setGeneralInfo([
+      ...generalInfo,
+      {id:Math.random()*1000, name:nameInput, number:numberInput, email:emailInput}
+    ]);
+    // setNameInput("");
+    // setEmailInput("");
+    // setPhoneNumberInput("");
   };
 
   const educationInfoSubmitHandler = (e) => {
@@ -52,7 +83,7 @@ function Form({
     setEducationInfo([
       ...educationInfo,
       {
-        id: Math.random() * 1000,
+        key: Math.random() * 1000,
         name: schoolNameInput,
         degree: degreeNameInput,
         gradYear: graduationYearInput,
@@ -69,12 +100,13 @@ function Form({
           <label htmlFor="" id="label">
             Name:
           </label>
-          <input onChange={nameChangeHandler} id="input" type="text" required />
+          <input onChange={changeHandler}  className="nameInput" id="input" type="text" required />
           <label htmlFor="" id="label">
             Email:
           </label>
           <input
-            onChange={emailChangeHandler}
+            className="emailInput"
+            onChange={changeHandler}
             id="input"
             type="text"
             required
@@ -82,7 +114,7 @@ function Form({
           <label htmlFor="" id="label">
             Phone Number:
           </label>
-          <input onChange={numberChangeHandler} type="number" required />
+          <input onChange={changeHandler} type="number" required  className="numberInput"/>
           <button className="submit" onClick={generalInfoSubmitHandler}>Submit</button>
         </div>
 
@@ -90,15 +122,15 @@ function Form({
           <label htmlFor="" id="label">
             University:
           </label>
-          <input id="input" type="text" onChange={schoolChangeHandler} />
+          <input id="input" type="text" onChange={changeHandler}  className="schoolInput"/>
           <label htmlFor="" id="input">
             Duration:
           </label>
-          <input id="input" type="text" onChange={gradYearChangeHandler} />
+          <input id="input" type="text" onChange={changeHandler}  className="graduationInput"/>
           <label htmlFor="" id="label">
             Degree:
           </label>
-          <input type="text" id="input" onChange={degreeChangeHandler}/>
+          <input type="text" id="input" onChange={changeHandler} className="degreeInput"/>
           <button className="submit" onClick={educationInfoSubmitHandler}>Submit</button>
         </div>
 
