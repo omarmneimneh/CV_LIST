@@ -1,17 +1,25 @@
 import React from "react";
 import SchoolField from "./schoolField";
-const Resume = ({generalInfo, educationInfo}) => {    
+import WorkExperienceField from "./WorkExperiece";
+const Resume = ({generalInfo, educationInfo, workExperienceInfo}) => {    
     return(
         <div className="resume">
             <div className="general">
-                <h1 id="name">Omar Mneimneh</h1>
-                <div className="emailnphone">
-                    <p>{}</p>
-                    <p></p>
-                </div>
+                {generalInfo.map(person => {
+                    return(
+                        <div>
+                            <h1>{person.name}</h1>
+                            <div className="numbernEmail">
+                                <p>{person.number}</p>
+                                <p>{person.email}</p>
+                            </div>
+                        </div>
+                    )
+                })}
             </div>
 
             <div className="schoolInfo">
+                <h2>Education</h2>
                 <ul>
                     {educationInfo.map(school => {
                         return <SchoolField 
@@ -19,6 +27,21 @@ const Resume = ({generalInfo, educationInfo}) => {
                             key = {school.id}
                             gradYear={school.gradYear}
                             degree={school.degree}
+                        />
+                    })}
+                </ul>
+            </div>
+            
+            <div className="workExperience">
+                <h2>Work Experience</h2>
+                <ul>
+                    {workExperienceInfo.map(job => {
+                        return <WorkExperienceField 
+                            name = {job.name}
+                            key = {job.id}
+                            position={job.position}
+                            tenure={job.tenure}
+                            description={job.description}
                         />
                     })}
                 </ul>

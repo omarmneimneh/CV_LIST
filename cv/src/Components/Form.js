@@ -5,6 +5,8 @@ function Form({
   generalInfo,
   setEducationInfo,
   educationInfo,
+  setWorkExperienceInfo,
+  workExperienceInfo
 }) {
   
   const [nameInput, setNameInput]=useState("");
@@ -27,7 +29,6 @@ function Form({
         setNameInput(e.target.value);
         break;
       case"emailInput":
-        console.log(e.target.value);
         setEmailInput(e.target.value);
         break;
       case"numberInput":
@@ -42,40 +43,29 @@ function Form({
       case"degreeInput":
         setDegreeName(e.target.value);
         break;
+      case"companyName":
+        setCompanyName(e.target.value);
+        break;
+      case"tenure":
+        setTenure(e.target.value);
+        break;
+      case"description":
+        setDescription(e.target.value.split('.'));
+        break;
       default:
+        setPosition(e.target.value);
         break;
     }
   };
 
-  // const emailChangeHandler = (e) => {
-  //   console.log(e.target.className)
-  //   setEmailInput(e.target);
-  // };
-
-  const numberChangeHandler = (e) => {
-    setPhoneNumberInput(e.target.value);
-  };
-
-  const schoolChangeHandler = (e) => {
-    setSchoolName(e.target.value);
-  };
-
-  const gradYearChangeHandler = (e) => {
-    setGradYear(e.target.value);
-  };
-  const degreeChangeHandler = (e) =>{
-    setDegreeName(e.target.value);
-  }
-
   const generalInfoSubmitHandler = (e) => {
     e.preventDefault();
     setGeneralInfo([
-      ...generalInfo,
       {id:Math.random()*1000, name:nameInput, number:numberInput, email:emailInput}
     ]);
-    // setNameInput("");
-    // setEmailInput("");
-    // setPhoneNumberInput("");
+    setNameInput("");
+    setEmailInput("");
+    setPhoneNumberInput("");
   };
 
   const educationInfoSubmitHandler = (e) => {
@@ -93,6 +83,23 @@ function Form({
     setGradYear("");
     setSchoolName("");
   };
+
+  const workSubmitHandler=(e)=>{
+    e.preventDefault();
+    setWorkExperienceInfo([
+      ...workExperienceInfo,
+      {
+        key: Math.random() * 1000,
+        company:companyNameInput,
+        tenure:tenure,
+        position:positionInput,
+        description : description
+      }
+    ]);
+    setCompanyName("");
+    setDescription([]);
+    setTenure("");
+  }
   return (
     <div>
       <form className="form">
@@ -138,15 +145,18 @@ function Form({
           <label htmlFor="" id="label">
             Company Name:
           </label>
-          <input type="text" id="input" />
+          <input type="text" id="input" className="companyName" onChange={changeHandler}/>
+          <label>Position:</label>
+          <input type="text" className="position" onChange={changeHandler}/>
           <label htmlFor="" id="label">
             Dates of Employment:
           </label>
-          <input type="text" id="input" />
+          <input type="text" id="input" className="tenure" onChange={changeHandler}/>
           <label htmlFor="" id="label">
             Description
           </label>
-          <input type="text" />
+          <input type="text" className="description" onChange={changeHandler}/>
+          <button className="submit" onClick={workSubmitHandler}>Submit</button>
         </div>
       </form>
     </div>

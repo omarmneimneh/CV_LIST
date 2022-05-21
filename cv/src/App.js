@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Resume from "./Components/Resume";
 import Form from "./Components/Form";
-import SchoolField from "./Components/schoolField";
+
 import "./style.css";
 const App = () => {
   //general information props and states (left and right respectively)
@@ -24,13 +24,14 @@ const App = () => {
         //education props and states
         setEducationInfo={setEducationInfo}
         educationInfo={educationInfo}
+        //work experience props and states
+        workExperienceInfo={workExperienceInfo}
+        setWorkExperienceInfo={setWorkExperienceInfo}
       />
       <Resume
-        // nameInput={nameInput}
-        // emailInput={emailInput}
-        // numberInput={numberInput}
         educationInfo={educationInfo}
         generalInfo={generalInfo}
+        workExperienceInfo={workExperienceInfo}
       />
     </div>
   );

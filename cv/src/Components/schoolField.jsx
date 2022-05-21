@@ -1,6 +1,6 @@
 import React from "react";
 
-const SchoolField = ({ schoolName, gradYear, degree }) =>{
+const SchoolField = ({ schoolName, gradYear, degree, key }) =>{
     return(
         <div className="schoolInfo">
             <h2>{schoolName}</h2>
