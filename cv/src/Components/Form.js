@@ -107,7 +107,7 @@ function Form({
           <label htmlFor="" id="label">
             Name:
           </label>
-          <input onChange={changeHandler}  className="nameInput" id="input" type="text" required />
+          <input onChange={changeHandler} value={nameInput} className="nameInput" id="input" type="text" required />
           <label htmlFor="" id="label">
             Email:
           </label>
@@ -116,12 +116,13 @@ function Form({
             onChange={changeHandler}
             id="input"
             type="text"
+            value={emailInput}
             required
           />
           <label htmlFor="" id="label">
             Phone Number:
           </label>
-          <input onChange={changeHandler} type="number" required  className="numberInput"/>
+          <input onChange={changeHandler} value={numberInput} type="number" required  className="numberInput"/>
           <button className="submit" onClick={generalInfoSubmitHandler}>Submit</button>
         </div>
 
@@ -129,15 +130,15 @@ function Form({
           <label htmlFor="" id="label">
             University:
           </label>
-          <input id="input" type="text" onChange={changeHandler}  className="schoolInput"/>
+          <input id="input" type="text" onChange={changeHandler} value={schoolNameInput} className="schoolInput"/>
           <label htmlFor="" id="input">
             Duration:
           </label>
-          <input id="input" type="text" onChange={changeHandler}  className="graduationInput"/>
+          <input id="input" type="text" onChange={changeHandler} value={graduationYearInput} className="graduationInput"/>
           <label htmlFor="" id="label">
             Degree:
           </label>
-          <input type="text" id="input" onChange={changeHandler} className="degreeInput"/>
+          <input type="text" id="input" onChange={changeHandler} value={degreeNameInput} className="degreeInput"/>
           <button className="submit" onClick={educationInfoSubmitHandler}>Submit</button>
         </div>
 
@@ -145,17 +146,17 @@ function Form({
           <label htmlFor="" id="label">
             Company Name:
           </label>
-          <input type="text" id="input" className="companyName" onChange={changeHandler}/>
+          <input type="text" id="input" className="companyName" value={companyNameInput} onChange={changeHandler}/>
           <label>Position:</label>
           <input type="text" className="position" onChange={changeHandler}/>
           <label htmlFor="" id="label">
             Dates of Employment:
           </label>
-          <input type="text" id="input" className="tenure" onChange={changeHandler}/>
+          <input type="text" id="input" className="tenure" value={tenure} onChange={changeHandler}/>
           <label htmlFor="" id="label">
             Description
           </label>
-          <input type="text" className="description" onChange={changeHandler}/>
+          <input type="text" className="description" value={description} onChange={changeHandler}/>
           <button className="submit" onClick={workSubmitHandler}>Submit</button>
         </div>
       </form>
