@@ -36,8 +36,9 @@ const Resume = ({generalInfo, educationInfo, workExperienceInfo}) => {
                 <h2>Work Experience</h2>
                 <ul>
                     {workExperienceInfo.map(job => {
+                        console.log(job)
                         return <WorkExperienceField 
-                            name = {job.name}
+                            name = {job.company}
                             key = {job.id}
                             position={job.position}
                             tenure={job.tenure}

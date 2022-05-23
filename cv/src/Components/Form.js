@@ -89,7 +89,7 @@ function Form({
     setWorkExperienceInfo([
       ...workExperienceInfo,
       {
-        key: Math.random() * 1000,
+        id: Math.random() * 1000,
         company:companyNameInput,
         tenure:tenure,
         position:positionInput,
@@ -98,6 +98,7 @@ function Form({
     ]);
     setCompanyName("");
     setDescription([]);
+    setPosition("")
     setTenure("");
   }
   return (
@@ -148,15 +149,11 @@ function Form({
           </label>
           <input type="text" id="input" className="companyName" value={companyNameInput} onChange={changeHandler}/>
           <label>Position:</label>
-          <input type="text" className="position" onChange={changeHandler}/>
+          <input type="text" className="position" onChange={changeHandler} value={positionInput}/>
           <label htmlFor="" id="label">
             Dates of Employment:
           </label>
           <input type="text" id="input" className="tenure" value={tenure} onChange={changeHandler}/>
-          <label htmlFor="" id="label">
-            Description
-          </label>
-          <input type="text" className="description" value={description} onChange={changeHandler}/>
           <button className="submit" onClick={workSubmitHandler}>Submit</button>
         </div>
       </form>
